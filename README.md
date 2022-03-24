@@ -34,7 +34,7 @@ JDKとはJava SE Development Kitのことで、Javaのインタプリタやコ�
         ```
 1. Javaがインストールできたか確認する
     ```
-    java -vaersion
+    java -version
     ```
 
 - 参考URL：https://eng-entrance.com/java-install-jdk-windows
