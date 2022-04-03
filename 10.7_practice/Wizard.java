@@ -4,41 +4,53 @@ public class Wizard {
     private String name;
     private Wand wand;
 
-    int getHp() {
+    public int getHp() {
         return this.hp;
     }
 
-    void setHp(int hp) {
+    public void setHp(int hp) {
+        if (hp < 0) {
+            hp = 0;
+        }
         this.hp = hp;
     }
 
-    int getMp() {
+    public int getMp() {
         return this.mp;
     }
 
-    void setMp(int mp) {
+    public void setMp(int mp) {
+        if (mp < 0) {
+            throw new IllegalArgumentException("エラーメッセージ");
+        }
         this.mp = mp;
     }
 
-    String getName() {
+    public String getName() {
         return this.name;
     }
 
-    void setName(String name) {
+    public void setName(String name) {
+        if (name == null || name.length <= 3) {
+            throw new IllegalArgumentException("エラーメッセージ");
+        }
         this.name = name;
     }
 
-    Wand getWand() {
+    public Wand getWand() {
+        if (this.wand == null) {
+            throw new IllegalArgumentException("エラーメッセージ");
+        }
         return this.wand;
     }
 
-    void setWand(Wand wand) {
+    public void setWand(Wand wand) {
         this.wand = wand;
     }
 
-    void heal(Hero h) {
+    public void heal(Hero h) {
         int basePoint = 10;
-        int recovPoint = (int) (basePoint * this.wand.getPower());
+        int recovPoint = (int) (basePoint * this.getWand().getPower());
 
         h.setHp(h.getHp() + recovPoint);
         System.out.println(h.getName() + "のHPを" + recovPoint + "回復した！");

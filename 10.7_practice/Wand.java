@@ -7,6 +7,9 @@ public class Wand {
     }
 
     public void setName(String name) {
+        if (name == null || name.length <= 3) {
+            throw new IllegalArgumentException("エラーメッセージ");
+        }
         this.name = name;
     }
 
@@ -15,6 +18,9 @@ public class Wand {
     }
 
     public void setPower(double power) {
+        if (power < 0.5 || power > 100) {
+            throw new IllegalArgumentException("エラーメッセージ");
+        }
         this.power = power;
     }
 }
